@@ -1,11 +1,13 @@
 import express from 'express';
 import router from './src/routes/payment.js';
 import mongoose from 'mongoose';
+import corsMiddleware from './src/middleware/cors.js';
 import 'dotenv/config';
 
 const PORT = process.env.PORT || 5000
 
 const app = express()
+app.use(corsMiddleware);
 app.use(express.json({ extended: true }))
 app.use('/api', router)
 

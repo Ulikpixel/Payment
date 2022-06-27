@@ -15,7 +15,7 @@ class PaymentController {
 
             const payment = await Payment.create({ card_number, date, cvv, amount });
 
-            res.json({ payment: { request_id: payment.id, amount } });
+            res.json({ request_id: payment.id, amount });
         } catch(error) {
             console.log(error);
             res.status(400).json({ message: 'Ошибка при оплаты платежа', error });
